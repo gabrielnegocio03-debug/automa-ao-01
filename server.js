@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const path    = require('path');
 const QRCode  = require('qrcode');
 const pino    = require('pino');
@@ -6,6 +7,8 @@ const { makeWASocket, DisconnectReason, useMultiFileAuthState, fetchLatestBailey
 const { Boom } = require('@hapi/boom');
 
 const app = express();
+
+app.use(cors()); // 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
